@@ -49,7 +49,7 @@
 	                              @endif	
 							</div>
 							<div class="col-md-12">
-								<p>Permission</p>
+								<p>Manage Permission</p>
 				                  <table class="table table-bordered table-striped">
 				                    <tbody>
 				                        <tr>

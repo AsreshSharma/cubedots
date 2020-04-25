@@ -33,7 +33,7 @@
           @if (Route::has('login'))
             @auth
               <li class="nav-item active">
-                <a class="nav-link" href="{{ url('/home') }}">Home
+                <a class="nav-link" href="{{ url('/home') }}">My Account
                   <span class="sr-only">(current)</span>
                 </a>
               </li>
