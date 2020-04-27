@@ -33,7 +33,23 @@ class HomeController extends Controller
      */
     public function index()
     {
-
+        if(Auth::user()->role=='Super Admin'){
+            $getpermissions=DB::table('modules')->get();
+            foreach ($getpermissions as $per) {
+                $getpermission=DB::table('permission')->where('modules_id',$per->id)->where('users_id',Auth::user()->id)->first();
+                if(!$getpermission){        
+                    $sm = new Permission;
+                    $sm->modules_id =$per->id;
+                    $sm->no_permission=0;
+                    $sm->create_m=1;
+                    $sm->update_m=1;
+                    $sm->delete_m=1;
+                    $sm->read_m=1;
+                    $sm->users_id=Auth::user()->id;
+                    $sm->save();                
+                }
+            }
+        }
         $title='Dashboard';
         $us = new User;
         $users=count($us::get());
